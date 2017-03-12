@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+
+{% block main %}
+<link rel="stylesheet" type="text/css" href="/static/css/app.css">
+
+<h1 class="page-header">Profiles</h1>
+ <div>
+ 	<form action="{{ url_for('profiles') }}" method="post"  enctype="application/json">
+            <button class="btn btn-lg btn-info submit-btn" type="submit">POST</button>
+        </form>
+ </div>
+{% for profile in profs %}
+
+<div class="pic"><img src="{{url_for('static',filename="uploads/"+profile.image)}}"></image></div>
+<div class ="rox">
+    <div id="r"><p><strong>{{profile.first_name }} {{profile.last_name}}</strong></p></div>
+    <p class="other">Profile created on  {{profile.profile_created_on}}</p>
+    <div id="data">
+    <p>Username: {{profile.username}}</p>
+    <p>User ID Number: {{profile.id}}</p>
+    <p>Age: {{profile.age}}</p>
+    <p>Gender: {{profile.gender}}</p>
+    </div>
+    <div><p class ="other">BIO: {{profile.bio}}</p>  </div>
+</div>
+
+{% endfor %}
+{% endblock %}

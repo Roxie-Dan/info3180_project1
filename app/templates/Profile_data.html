@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+<link rel="stylesheet" href="app.css">
+<h1 class="page-header">Contact Form</h1>
+<p class="lead">Fill in this form to submit your info <br></p>
+<form action="{{url_for('signup')}}" method="POST" enctype="multipart/form-data">
+    <div><p class="tit">username<span class="req">[Required]</span><br></p>
+        <input type="text" name="username" id="username"> </input><br>
+    </div>
+	  <div><p class="tit">First Name<span class="req">[Required]</span><br></p>
+  			<input type="text" name="fname" id="name"> </input><br>
+  	</div>
+  	<div><p class="tit">Last Name<span class="req">[Required]</span><br></p>
+  			<input type="text" name="lname" id="lname"></input> <br>
+  	</div>
+  	<div><p class="tit"> Age <span class="req">[Required]</span> <br></p>
+  			<input type="text" name="age" id="age"></input> <br>
+  	</div>
+    <div>
+      <p class="tit"> Gender <span class="req">[Required]</span> <br></p>
+        <select name="gender" id="gender">
+          <option value="female">Female</option>
+          <option value = "male">Male</option>
+        </select> <br>
+    </div>
+  	<div id = "mess"><p class="tit"> Bio <span class="req">[Required]</span> <br></p>
+  			<input type="text" name="bio" id="bio"></input><br>
+  	</div>
+    <div>
+      <label for="file">Upload your Profile Image</label>
+    <input type="file" name="profilepic"/>
+  </div>
+  <div>
+  	<input class="btn" type="submit"  class="form-control"></input>
+  </div>
+</form>
+{% endblock %}
